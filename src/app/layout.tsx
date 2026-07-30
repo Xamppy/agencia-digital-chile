@@ -1,50 +1,39 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import "./globals.css";
 
 const inter = Inter({
-  variable: "--font-inter",
   subsets: ["latin"],
-  display: "swap",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Agencia Digital Chile | Desarrollo Web y Marketing Digital",
-    template: "%s | Agencia Digital Chile",
+    default: "Entity — Agencia Digital en Chile",
+    template: "%s | Entity",
   },
   description:
-    "Agencia de desarrollo web y marketing digital en Chile. Landing pages, e-commerce, SEO, sistemas web, agentes de IA y bots de WhatsApp.",
+    "Agencia digital full-service en Chile. Landing pages, e-commerce, SEO, sistemas web, agentes de IA y bots de WhatsApp. Automatizaciones que generan resultados.",
   keywords: [
-    "agencia digital chile",
-    "desarrollo web chile",
-    "marketing digital",
-    "landing pages",
-    "e-commerce chile",
-    "SEO chile",
-    "agentes de IA",
-    "bots de whatsapp",
-    "sistemas web",
+    "agencia digital Chile",
+    "landing pages Chile",
+    "e-commerce Chile",
+    "SEO Chile",
+    "desarrollo web Chile",
+    "automatización IA",
+    "bots WhatsApp",
+    "sistemas web a medida",
   ],
-  authors: [{ name: "Agencia Digital Chile" }],
-  creator: "Agencia Digital Chile",
-  metadataBase: new URL("https://agenciadigitalchile.cl"),
   openGraph: {
     type: "website",
     locale: "es_CL",
-    siteName: "Agencia Digital Chile",
-    title: "Agencia Digital Chile | Desarrollo Web y Marketing Digital",
+    siteName: "Entity",
+    title: "Entity — Agencia Digital en Chile",
     description:
-      "Soluciones digitales a medida para empresas en Chile. Desde landing pages hasta agentes de inteligencia artificial.",
+      "Agencia digital full-service. Web, SEO, automatizaciones e IA para empresas que quieren crecer.",
   },
-};
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -53,10 +42,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans">
+    <html lang="es" className={inter.variable}>
+      <body className="font-sans bg-surface text-text-primary antialiased">
         <Navbar />
-        <main className="flex-1 pt-16">{children}</main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>
